@@ -1,0 +1,13 @@
+DATA:
+    ROOT: '/PATH/TO/videos'
+    TRAIN_FILE: '/PATH/TO/train_list_videos.txt'
+    VAL_FILE: '/PATH/TO/val_list_videos.txt'
+    DATASET: something-somethingv2
+    NUM_FRAMES: 8
+    NUM_CLASSES: 174
+    LABEL_LIST: 'labels/something-something-v2-labels.csv'
+MODEL:
+    ARCH: ViT-B/16
+TRAIN:
+    BATCH_SIZE: 8
+    ACCUMULATION_STEPS: 4
