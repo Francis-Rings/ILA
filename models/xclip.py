@@ -175,7 +175,7 @@ class XCLIP(CLIP):
         # img_features = img_features @ self.prompts_visual_proj
         
         cls_features = cls_features.view(b, t, -1)
-        img_features = img_features.view(b,t,-1,cls_features.shape[-1])
+        # img_features = img_features.view(b,t,-1,cls_features.shape[-1])
         
         video_features = self.mit(cls_features)
 
@@ -192,7 +192,7 @@ class XCLIP(CLIP):
     def forward(self, image, text):
         b = image.shape[0]
         video_features, img_features, cos_loss_list = self.encode_video(image)
-        img_features = img_features.mean(dim=1, keepdim=False)
+        # img_features = img_features.mean(dim=1, keepdim=False)
 
         # if self.use_cache:
         #     text_features = self.cache_text(text)

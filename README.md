@@ -85,23 +85,23 @@ python -m torch.distributed.launch --nproc_per_node=8 main.py -cfg configs/ssv2/
 This is an original-implementation for open-source use. In the following table we report the accuracy in original paper.
 - Fully-supervised on Kinetics-400:
 
-    | Model | Input | Top-1 Acc.(%) | Top-5 Acc.(%)| ckpt | log |
-    |--|--|--|--|--|--|--|
-    | ILA-B/32 | 8x224 | 81.3 | 95.0 | [GoogleDrive](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k400_32_8.pth) | [GoogleDrive](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k400_32_8.txt)|
-    | ILA-B/32 | 16x224 | 82.4 | 95.8 | [GoogleDrive](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k400_32_16.pth) | [GoogleDrive](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k400_32_16.txt) |
-    | ILA-B/16 | 8x224 | 84.0 | 96.6 | [GoogleDrive](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k400_16_8.pth) | [GoogleDrive](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k400_16_8.txt) |
-    | ILA-B/16 | 16x224 | 85.7 | 97.2 | [GoogleDrive](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k400_16_16.pth) | [GoogleDrive](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k400_16_16.txt)|
-    | ILA-B/14 | 8x224 | 88.0 | 98.1 | [GoogleDrive](https://drive.google.com/file/d/1NUOImq0o5DlQTST17iIP3vG7DgmHQuCx/view?usp=sharing) | [GoogleDrive](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k400_14_8.txt)|
-    | ILA-B/14 | 16x336 | 88.9 | 97.8 |[GoogleDrive](https://drive.google.com/file/d/1FOYgnJc097OJ4lGwtRCCydQyVPJEOH7d/view?usp=sharing)  |[GoogleDrive](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k400_14_16_336.txt) |
+    | Model | Input | Top-1 Acc.(%) | Top-5 Acc.(%)| ckpt |
+    |--|--|--|--|--|
+    | ILA-B/32 | 8x224 | 81.3 | 95.0 | [GoogleDrive](https://drive.google.com/file/d/1hbl3nndAcxENsif0QuEJ_8UxiTv9jSOh/view?usp=share_link) |
+    | ILA-B/32 | 16x224 | 82.4 | 95.8 | [GoogleDrive](https://drive.google.com/file/d/1GEO8m1qfDsOj-81YW5jc8ekAxPWMrtg3/view?usp=share_link) |
+    | ILA-B/16 | 8x224 | 84.0 | 96.6 | [GoogleDrive](https://drive.google.com/file/d/1lAUgzxBDHoueXDaG9X9WFlBPVBl5LNdk/view?usp=share_link) |
+    | ILA-B/16 | 16x224 | 85.7 | 97.2 | [GoogleDrive](https://drive.google.com/file/d/1IYz8DzzgoNbU1aXyeHFl69t6pb0RNMsV/view?usp=share_link) |
+    | ILA-B/14 | 8x224 | 88.0 | 98.1 | [GoogleDrive](https://drive.google.com/file/d/1IhalyRKqAbJ9efLAgAA4f7t9hwRMux0p/view?usp=share_link) |
+    | ILA-B/14 | 16x336 | 88.7 | 97.8 |[GoogleDrive](https://drive.google.com/file/d/132aB_FF-jPKP1z3kZArG_tOj32rVIFYc/view?usp=share_link) |
 
 - Fully-supervised on Something-Something v2:
 
-    | Model | Input | Top-1 Acc.(%) | Top-5 Acc.(%)| ckpt | log |
-    |--|--|--|--|--|--|--|
-    | ILA-B/16 | 8x224 | 65.0 | 89.2 | [Github](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k600_16_8.pth) | [Github](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k600_16_8.txt)|
-    | ILA-B/16 | 16x224 | 66.8 | 90.3 | [Github](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k600_16_16.pth) | [Github](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k600_16_16.txt) |
-    | ILA-L/14 | 8x224 | 67.8 | 90.5 | [GoogleDrive](https://drive.google.com/file/d/1FV8C1INuM91sLAN4ImjzePLIlpMSihwV/view?usp=sharing) | [Github](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k600_14_8.txt) |
-    | ILA-L/14 | 16x336 | 70.6 | 93.1 | [GoogleDrive](https://drive.google.com/file/d/1FV8C1INuM91sLAN4ImjzePLIlpMSihwV/view?usp=sharing) | [Github](https://github.com/nbl97/X-CLIP_Model_Zoo/releases/download/v1.0/k600_14_8.txt) |
+    | Model | Input | Top-1 Acc.(%) | Top-5 Acc.(%)| ckpt |
+    |--|--|--|--|--|
+    | ILA-B/16 | 8x224 | 65.0 | 89.2 | [GoogleDrive](https://drive.google.com/file/d/1Ei0fO-W8u4jBQO0qG6V7nlRjKUuozbLa/view?usp=share_link) |
+    | ILA-B/16 | 16x224 | 66.8 | 90.3 | [GoogleDrive](https://drive.google.com/file/d/1NYXsYSOjRuuOIXiCTaTE2gFUCi-1qC_5/view?usp=share_link) |
+    | ILA-L/14 | 8x224 | 67.8 | 90.5 | [GoogleDrive](https://drive.google.com/file/d/10xHxzyUH38bjkAAutlBvMkj0BxXaaobB/view?usp=share_link) |
+    | ILA-L/14 | 16x336 | 70.2 | 91.8 | [GoogleDrive](https://drive.google.com/file/d/1ZquukTAxosC2k1uquI9jnMsk4BA2N5w5/view?usp=share_link) |
 
 
 # Bibtex
