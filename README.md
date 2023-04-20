@@ -91,8 +91,8 @@ This is an original-implementation for open-source use. In the following table w
     | ILA-B/32 | 16x224 | 82.4 | 95.8 | [GoogleDrive](https://drive.google.com/file/d/1GEO8m1qfDsOj-81YW5jc8ekAxPWMrtg3/view?usp=share_link) |
     | ILA-B/16 | 8x224 | 84.0 | 96.6 | [GoogleDrive](https://drive.google.com/file/d/1lAUgzxBDHoueXDaG9X9WFlBPVBl5LNdk/view?usp=share_link) |
     | ILA-B/16 | 16x224 | 85.7 | 97.2 | [GoogleDrive](https://drive.google.com/file/d/1IYz8DzzgoNbU1aXyeHFl69t6pb0RNMsV/view?usp=share_link) |
-    | ILA-B/14 | 8x224 | 88.0 | 98.1 | [GoogleDrive](https://drive.google.com/file/d/1IhalyRKqAbJ9efLAgAA4f7t9hwRMux0p/view?usp=share_link) |
-    | ILA-B/14 | 16x336 | 88.7 | 97.8 |[GoogleDrive](https://drive.google.com/file/d/132aB_FF-jPKP1z3kZArG_tOj32rVIFYc/view?usp=share_link) |
+    | ILA-L/14 | 8x224 | 88.0 | 98.1 | [GoogleDrive](https://drive.google.com/file/d/1IhalyRKqAbJ9efLAgAA4f7t9hwRMux0p/view?usp=share_link) |
+    | ILA-L/14 | 16x336 | 88.7 | 97.8 |[GoogleDrive](https://drive.google.com/file/d/132aB_FF-jPKP1z3kZArG_tOj32rVIFYc/view?usp=share_link) |
 
 - Fully-supervised on Something-Something v2:
 
