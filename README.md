@@ -1,12 +1,12 @@
 
 # Implicit Temporal Modeling with Learnable Alignment for Video Recognition
 
-This is an official implementation of [ILA](https://arxiv.org/abs/), a new temporal modeling method for video action recognition.
+This is an official implementation of [ILA](https://arxiv.org/abs/2304.10465), a new temporal modeling method for video action recognition.
 
-> [**Implicit Temporal Modeling with Learnable Alignment for Video Recognition**](https://arxiv.org/abs/)<br>
+> [**Implicit Temporal Modeling with Learnable Alignment for Video Recognition**](https://arxiv.org/abs/2304.10465)<br>
 > Shuyuan Tu, [Qi Dai](https://scholar.google.com/citations?user=NSJY12IAAAAJ), [Zuxuan Wu](https://zxwu.azurewebsites.net/), [Zhi-Qi Cheng](https://scholar.google.com/citations?user=uB2He2UAAAAJ), [Han Hu](https://ancientmooner.github.io/), [Yu-Gang Jiang](https://fvl.fudan.edu.cn/)
 
-[[arxiv]](https://arxiv.org/abs/)
+[[arxiv]](https://arxiv.org/abs/2304.10465)
 
 
 <div align="center">
@@ -110,7 +110,7 @@ If this project is useful for you, please consider citing our paper :
 @article{ILA,
   title={Implicit Temporal Modeling with Learnable Alignment for Video Recognition},
   author={Tu, Shuyuan and Dai, Qi and Wu, Zuxuan and Cheng, Zhi-Qi and Hu, Han and Jiang, Yu-Gang},
-  journal={arXiv preprint arXiv:},
+  journal={arXiv preprint arXiv:2304.10465},
   year={2023}
 }
 ```
