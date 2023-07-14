@@ -86,21 +86,21 @@ This is an original-implementation for open-source use. In the following table w
 - Fully-supervised on Kinetics-400:
 
     | Model | Input | Top-1 Acc.(%) | Top-5 Acc.(%)| ckpt |
-    |--|--|--|--|--|
-    | ILA-B/32 | 8x224 | 81.3 | 95.0 | [GoogleDrive](https://drive.google.com/file/d/1hbl3nndAcxENsif0QuEJ_8UxiTv9jSOh/view?usp=share_link) |
+    |:--:|--:|:--:|:--:|:--:|
+    | ILA-B/32 | 8x224  | 81.3 | 95.0 | [GoogleDrive](https://drive.google.com/file/d/1hbl3nndAcxENsif0QuEJ_8UxiTv9jSOh/view?usp=share_link) |
     | ILA-B/32 | 16x224 | 82.4 | 95.8 | [GoogleDrive](https://drive.google.com/file/d/1GEO8m1qfDsOj-81YW5jc8ekAxPWMrtg3/view?usp=share_link) |
-    | ILA-B/16 | 8x224 | 84.0 | 96.6 | [GoogleDrive](https://drive.google.com/file/d/1lAUgzxBDHoueXDaG9X9WFlBPVBl5LNdk/view?usp=share_link) |
+    | ILA-B/16 | 8x224  | 84.0 | 96.6 | [GoogleDrive](https://drive.google.com/file/d/1lAUgzxBDHoueXDaG9X9WFlBPVBl5LNdk/view?usp=share_link) |
     | ILA-B/16 | 16x224 | 85.7 | 97.2 | [GoogleDrive](https://drive.google.com/file/d/1IYz8DzzgoNbU1aXyeHFl69t6pb0RNMsV/view?usp=share_link) |
-    | ILA-L/14 | 8x224 | 88.0 | 98.1 | [GoogleDrive](https://drive.google.com/file/d/1IhalyRKqAbJ9efLAgAA4f7t9hwRMux0p/view?usp=share_link) |
+    | ILA-L/14 |  8x224 | 88.0 | 98.1 | [GoogleDrive](https://drive.google.com/file/d/1IhalyRKqAbJ9efLAgAA4f7t9hwRMux0p/view?usp=share_link) |
     | ILA-L/14 | 16x336 | 88.7 | 97.8 |[GoogleDrive](https://drive.google.com/file/d/132aB_FF-jPKP1z3kZArG_tOj32rVIFYc/view?usp=share_link) |
 
 - Fully-supervised on Something-Something v2:
 
     | Model | Input | Top-1 Acc.(%) | Top-5 Acc.(%)| ckpt |
-    |--|--|--|--|--|
-    | ILA-B/16 | 8x224 | 65.0 | 89.2 | [GoogleDrive](https://drive.google.com/file/d/1Ei0fO-W8u4jBQO0qG6V7nlRjKUuozbLa/view?usp=share_link) |
+    |:--:|--:|:--:|:--:|:--:|
+    | ILA-B/16 | 8x224  | 65.0 | 89.2 | [GoogleDrive](https://drive.google.com/file/d/1Ei0fO-W8u4jBQO0qG6V7nlRjKUuozbLa/view?usp=share_link) |
     | ILA-B/16 | 16x224 | 66.8 | 90.3 | [GoogleDrive](https://drive.google.com/file/d/1NYXsYSOjRuuOIXiCTaTE2gFUCi-1qC_5/view?usp=share_link) |
-    | ILA-L/14 | 8x224 | 67.8 | 90.5 | [GoogleDrive](https://drive.google.com/file/d/10xHxzyUH38bjkAAutlBvMkj0BxXaaobB/view?usp=share_link) |
+    | ILA-L/14 | 8x224  | 67.8 | 90.5 | [GoogleDrive](https://drive.google.com/file/d/10xHxzyUH38bjkAAutlBvMkj0BxXaaobB/view?usp=share_link) |
     | ILA-L/14 | 16x336 | 70.2 | 91.8 | [GoogleDrive](https://drive.google.com/file/d/1ZquukTAxosC2k1uquI9jnMsk4BA2N5w5/view?usp=share_link) |
 
 
