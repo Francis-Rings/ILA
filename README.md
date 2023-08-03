@@ -111,10 +111,10 @@ This is an original-implementation for open-source use. In the following table w
 # Bibtex
 If this project is useful for you, please consider citing our paper :
 ```
-@article{ILA,
+@inproceedings{tu2023ila,
   title={Implicit Temporal Modeling with Learnable Alignment for Video Recognition},
   author={Tu, Shuyuan and Dai, Qi and Wu, Zuxuan and Cheng, Zhi-Qi and Hu, Han and Jiang, Yu-Gang},
-  journal={arXiv preprint arXiv:2304.10465},
+  booktitle={ICCV},
   year={2023}
 }
 ```
