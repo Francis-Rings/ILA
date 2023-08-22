@@ -39,7 +39,7 @@ git clone https://github.com/NVIDIA/apex
 cd apex
 pip install -v --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./
 ```
-It is worth noting that the version of K400 is located at main branch and the version of Something-Something v2 is located at another branch.
+It is worth noting that this branch is for k400. For SSv2, please refer to SSv2 branch.
 
 # Data Preparation
 
