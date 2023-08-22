@@ -46,11 +46,11 @@ class MultiframeIntegrationTransformer(nn.Module):
         self.num_classes = num_classes
 
         # Something-Something v2
-        # self.classify_head = nn.Sequential(
-        #     nn.LayerNorm(self.backbone_feature_dim),
-        #     nn.Dropout(0.5),
-        #     nn.Linear(self.backbone_feature_dim, self.num_classes),
-        # )
+        self.classify_head = nn.Sequential(
+            nn.LayerNorm(self.backbone_feature_dim),
+            nn.Dropout(0.5),
+            nn.Linear(self.backbone_feature_dim, self.num_classes),
+        )
 
         self.apply(self._init_weights)
 
@@ -71,13 +71,13 @@ class MultiframeIntegrationTransformer(nn.Module):
         x = x.permute(1, 0, 2)
         x = x.type(ori_x.dtype) + ori_x
 
-        # Something-Something v2
-        # x = x.mean(dim=1, keepdim=False)
-        # x = x / x.norm(dim=-1, keepdim=True)
-        # x = self.classify_head(x)
-        # return x
+        Something-Something v2
+        x = x.mean(dim=1, keepdim=False)
+        x = x / x.norm(dim=-1, keepdim=True)
+        x = self.classify_head(x)
+        return x
 
-        return x.mean(dim=1, keepdim=False)
+        # return x.mean(dim=1, keepdim=False)
 
 
 if __name__ == '__main__':

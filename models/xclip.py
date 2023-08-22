@@ -88,8 +88,8 @@ class XCLIP(CLIP):
         )
 
         # k400
-        self.prompts_generator = VideoSpecificPrompt(layers=prompts_layers, embed_dim=embed_dim, alpha=prompts_alpha, )
-        self.use_cache = use_cache
+        # self.prompts_generator = VideoSpecificPrompt(layers=prompts_layers, embed_dim=embed_dim, alpha=prompts_alpha, )
+        # self.use_cache = use_cache
 
         # Something-Something v2
         # self.prompts_generator = VideoSpecificPrompt(layers=prompts_layers, embed_dim=embed_dim, alpha=prompts_alpha,)
@@ -114,22 +114,22 @@ class XCLIP(CLIP):
         )
 
         # k400
-        self.transformer = Transformer(
-            width=transformer_width,
-            layers=transformer_layers,
-            heads=transformer_heads,
-            attn_mask=self.build_attention_mask()
-        )
-        self.vocab_size = vocab_size
-        self.token_embedding = nn.Embedding(vocab_size, transformer_width)
-        self.positional_embedding = nn.Parameter(torch.empty(self.context_length, transformer_width))
-        self.ln_final = LayerNorm(transformer_width)
-        self.text_projection = nn.Parameter(torch.empty(transformer_width, embed_dim))
-        self.logit_scale = nn.Parameter(torch.ones([]) * np.log(1 / 0.07))
-        self.cache_text_features = None
-        self.prompts_visual_ln = LayerNorm(vision_width)
-        self.prompts_visual_proj = nn.Parameter(torch.randn(vision_width, embed_dim))
-        self.initialize_parameters()
+        # self.transformer = Transformer(
+        #     width=transformer_width,
+        #     layers=transformer_layers,
+        #     heads=transformer_heads,
+        #     attn_mask=self.build_attention_mask()
+        # )
+        # self.vocab_size = vocab_size
+        # self.token_embedding = nn.Embedding(vocab_size, transformer_width)
+        # self.positional_embedding = nn.Parameter(torch.empty(self.context_length, transformer_width))
+        # self.ln_final = LayerNorm(transformer_width)
+        # self.text_projection = nn.Parameter(torch.empty(transformer_width, embed_dim))
+        # self.logit_scale = nn.Parameter(torch.ones([]) * np.log(1 / 0.07))
+        # self.cache_text_features = None
+        # self.prompts_visual_ln = LayerNorm(vision_width)
+        # self.prompts_visual_proj = nn.Parameter(torch.randn(vision_width, embed_dim))
+        # self.initialize_parameters()
 
         # Something-Something v2
         # self.transformer = Transformer(
@@ -156,21 +156,21 @@ class XCLIP(CLIP):
         return {'positional_embedding'}
 
     # k400
-    def initialize_parameters(self):
-        nn.init.normal_(self.token_embedding.weight, std=0.02)
-        nn.init.normal_(self.positional_embedding, std=0.01)
-
-        proj_std = (self.transformer.width ** -0.5) * ((2 * self.transformer.layers) ** -0.5)
-        attn_std = self.transformer.width ** -0.5
-        fc_std = (2 * self.transformer.width) ** -0.5
-        for block in self.transformer.resblocks:
-            nn.init.normal_(block.attn.in_proj_weight, std=attn_std)
-            nn.init.normal_(block.attn.out_proj.weight, std=proj_std)
-            nn.init.normal_(block.mlp.c_fc.weight, std=fc_std)
-            nn.init.normal_(block.mlp.c_proj.weight, std=proj_std)
-
-        if self.text_projection is not None:
-            nn.init.normal_(self.text_projection, std=self.transformer.width ** -0.5)
+    # def initialize_parameters(self):
+    #     nn.init.normal_(self.token_embedding.weight, std=0.02)
+    #     nn.init.normal_(self.positional_embedding, std=0.01)
+    #
+    #     proj_std = (self.transformer.width ** -0.5) * ((2 * self.transformer.layers) ** -0.5)
+    #     attn_std = self.transformer.width ** -0.5
+    #     fc_std = (2 * self.transformer.width) ** -0.5
+    #     for block in self.transformer.resblocks:
+    #         nn.init.normal_(block.attn.in_proj_weight, std=attn_std)
+    #         nn.init.normal_(block.attn.out_proj.weight, std=proj_std)
+    #         nn.init.normal_(block.mlp.c_fc.weight, std=fc_std)
+    #         nn.init.normal_(block.mlp.c_proj.weight, std=proj_std)
+    #
+    #     if self.text_projection is not None:
+    #         nn.init.normal_(self.text_projection, std=self.transformer.width ** -0.5)
 
     # Something-Something v2
     # def initialize_parameters(self):
@@ -193,20 +193,20 @@ class XCLIP(CLIP):
         return self.visual(image)
 
     # k400
-    def encode_text(self, text):
-        x = self.token_embedding(text)
-        eos_indx = text.argmax(dim=-1)
-        K, N1, C = x.shape
-        x = x + self.positional_embedding
-        x = x.permute(1, 0, 2)  # NLD -> LND
-        x = self.transformer(x)
-        x = x.permute(1, 0, 2)  # LND -> NLD
-        x = self.ln_final(x)
-        # x.shape = [batch_size, n_ctx, transformer.width]
-        # take features from the eot embedding (eot_token is the highest number in each sequence)
-        x = x[torch.arange(x.shape[0]), eos_indx] @ self.text_projection
-        x = x.reshape(K, -1)
-        return x
+    # def encode_text(self, text):
+    #     x = self.token_embedding(text)
+    #     eos_indx = text.argmax(dim=-1)
+    #     K, N1, C = x.shape
+    #     x = x + self.positional_embedding
+    #     x = x.permute(1, 0, 2)  # NLD -> LND
+    #     x = self.transformer(x)
+    #     x = x.permute(1, 0, 2)  # LND -> NLD
+    #     x = self.ln_final(x)
+    #     # x.shape = [batch_size, n_ctx, transformer.width]
+    #     # take features from the eot embedding (eot_token is the highest number in each sequence)
+    #     x = x[torch.arange(x.shape[0]), eos_indx] @ self.text_projection
+    #     x = x.reshape(K, -1)
+    #     return x
 
     # Something-Something v2
     # def encode_text(self, text):
@@ -232,15 +232,15 @@ class XCLIP(CLIP):
         cls_features, img_features, cos_loss_list = self.encode_image(image)
 
         # k400
-        img_features = self.prompts_visual_ln(img_features)
-        img_features = img_features @ self.prompts_visual_proj
+        # img_features = self.prompts_visual_ln(img_features)
+        # img_features = img_features @ self.prompts_visual_proj
 
         # Something-Something v2
         # img_features = self.prompts_visual_ln(img_features)
         # img_features = img_features @ self.prompts_visual_proj
 
         cls_features = cls_features.view(b, t, -1)
-        img_features = img_features.view(b, t, -1, cls_features.shape[-1])
+        # img_features = img_features.view(b, t, -1, cls_features.shape[-1])
 
         # Something-Something v2
         # img_features = img_features.view(b,t,-1,cls_features.shape[-1])
@@ -249,33 +249,33 @@ class XCLIP(CLIP):
 
         return video_features, img_features, cos_loss_list
 
-    def cache_text(self, text):
-        self.eval()
-        with torch.no_grad():
-            if self.cache_text_features is None:
-                self.cache_text_features = self.encode_text(text)
-        self.train()
-        return self.cache_text_features
+    # def cache_text(self, text):
+    #     self.eval()
+    #     with torch.no_grad():
+    #         if self.cache_text_features is None:
+    #             self.cache_text_features = self.encode_text(text)
+    #     self.train()
+    #     return self.cache_text_features
 
     def forward(self, image, text):
         b = image.shape[0]
         video_features, img_features, cos_loss_list = self.encode_video(image)
 
         # K400
-        img_features = img_features.mean(dim=1, keepdim=False)
-        if self.use_cache:
-            text_features = self.cache_text(text)
-        else:
-            text_features = self.encode_text(text)
-        text_features = text_features.unsqueeze(0).expand(b, -1, -1)
-        text_features = text_features + self.prompts_generator(text_features, img_features)
-        video_features = video_features / video_features.norm(dim=-1, keepdim=True)
-        text_features = text_features / text_features.norm(dim=-1, keepdim=True)
-        logit_scale = self.logit_scale.exp()
-        logits = torch.einsum("bd,bkd->bk", video_features, logit_scale * text_features)
+        # img_features = img_features.mean(dim=1, keepdim=False)
+        # if self.use_cache:
+        #     text_features = self.cache_text(text)
+        # else:
+        #     text_features = self.encode_text(text)
+        # text_features = text_features.unsqueeze(0).expand(b, -1, -1)
+        # text_features = text_features + self.prompts_generator(text_features, img_features)
+        # video_features = video_features / video_features.norm(dim=-1, keepdim=True)
+        # text_features = text_features / text_features.norm(dim=-1, keepdim=True)
+        # logit_scale = self.logit_scale.exp()
+        # logits = torch.einsum("bd,bkd->bk", video_features, logit_scale * text_features)
 
         # Something-Something v2
-        # logits = video_features
+        logits = video_features
 
         return logits, cos_loss_list
 
