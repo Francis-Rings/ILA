@@ -84,17 +84,15 @@ class ILA(nn.Module):
         self.d_model = d_model
         self.is_training = is_training
 
+        # k400
         self.interactive_block = nn.Sequential(
-            nn.Conv2d(self.d_model * 2, 256, 3, padding=1),
-            nn.BatchNorm2d(256),
-            nn.ReLU(),
+            Depth_Separable_Convolution(self.d_model * 2, 256),
             nn.Conv2d(256, 256, 3, padding=1),
             nn.BatchNorm2d(256),
             nn.ReLU(),
         )
-        self.conv = nn.Conv3d(in_channels=128, out_channels=128, kernel_size=(3, 1, 1), padding=(1, 0, 0))
         self.fc = nn.Linear(128, self.d_model)
-
+        self.conv = nn.Conv3d(in_channels=128, out_channels=128, kernel_size=(3, 1, 1), padding=(1, 0, 0))
         self.prediction_block = nn.Sequential(
             nn.Conv2d(256, 128, 3, padding=1),
             nn.BatchNorm2d(128),
@@ -113,6 +111,37 @@ class ILA(nn.Module):
         )
         self.prediction_block[-2].weight.data.zero_()
         self.prediction_block[-2].bias.data.zero_()
+
+        # Something-Something v2
+        # self.interactive_block = nn.Sequential(
+        #     nn.Conv2d(self.d_model * 2, 256, 3, padding=1),
+        #     nn.BatchNorm2d(256),
+        #     nn.ReLU(),
+        #     nn.Conv2d(256, 256, 3, padding=1),
+        #     nn.BatchNorm2d(256),
+        #     nn.ReLU(),
+        # )
+        # self.conv = nn.Conv3d(in_channels=128, out_channels=128, kernel_size=(3, 1, 1), padding=(1, 0, 0))
+        # self.fc = nn.Linear(128, self.d_model)
+        #
+        # self.prediction_block = nn.Sequential(
+        #     nn.Conv2d(256, 128, 3, padding=1),
+        #     nn.BatchNorm2d(128),
+        #     nn.MaxPool2d((2, 2)),
+        #     nn.ReLU(),
+        #     nn.Conv2d(128, 128, 3, padding=1),
+        #     nn.BatchNorm2d(128),
+        #     nn.MaxPool2d((2, 2)),
+        #     nn.ReLU(),
+        #     nn.AdaptiveMaxPool2d((1, 1)),
+        #     SqueezeAndRerange(-2, -1, T=self.T),
+        #     nn.Conv1d(128, 64, 1, groups=2),
+        #     nn.ReLU(),
+        #     nn.Conv1d(64, 4, 1, groups=2),
+        #     nn.Tanh()
+        # )
+        # self.prediction_block[-2].weight.data.zero_()
+        # self.prediction_block[-2].bias.data.zero_()
 
         delta = 0.2
         self.disturbance_offset = torch.tensor([[0, 0], [0, 1], [1, 0], [0, -1], [-1, 0], [1, 1], [-1, -1], [1, -1], [-1, 1]]).float() * delta

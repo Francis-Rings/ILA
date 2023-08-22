@@ -3,6 +3,7 @@ from torch import nn
 from collections import OrderedDict
 from timm.models.layers import trunc_normal_
 import sys
+
 sys.path.append("../")
 from clip.model import QuickGELU
 
@@ -38,18 +39,21 @@ class MultiframeIntegrationTransformer(nn.Module):
         transformer_heads = embed_dim // 64
         self.positional_embedding = nn.Parameter(torch.empty(1, T, embed_dim))
         trunc_normal_(self.positional_embedding, std=0.02)
-        self.resblocks = nn.Sequential(*[ResidualAttentionBlock(d_model=embed_dim, n_head=transformer_heads) for _ in range(layers)])
+        self.resblocks = nn.Sequential(
+            *[ResidualAttentionBlock(d_model=embed_dim, n_head=transformer_heads) for _ in range(layers)])
 
         self.backbone_feature_dim = embed_dim
         self.num_classes = num_classes
-        self.classify_head = nn.Sequential(
-            nn.LayerNorm(self.backbone_feature_dim),
-            nn.Dropout(0.5),
-            nn.Linear(self.backbone_feature_dim, self.num_classes),
-        )
+
+        # Something-Something v2
+        # self.classify_head = nn.Sequential(
+        #     nn.LayerNorm(self.backbone_feature_dim),
+        #     nn.Dropout(0.5),
+        #     nn.Linear(self.backbone_feature_dim, self.num_classes),
+        # )
 
         self.apply(self._init_weights)
-    
+
     def _init_weights(self, m):
         if isinstance(m, (nn.Linear,)):
             trunc_normal_(m.weight, std=0.02)
@@ -64,15 +68,16 @@ class MultiframeIntegrationTransformer(nn.Module):
         x = x + self.positional_embedding
         x = x.permute(1, 0, 2)
         x = self.resblocks(x)
-        x = x.permute(1, 0, 2)  
+        x = x.permute(1, 0, 2)
         x = x.type(ori_x.dtype) + ori_x
 
-        x = x.mean(dim=1, keepdim=False)
-        x = x / x.norm(dim=-1, keepdim=True)
-        x = self.classify_head(x)
-        return x
+        # Something-Something v2
+        # x = x.mean(dim=1, keepdim=False)
+        # x = x / x.norm(dim=-1, keepdim=True)
+        # x = self.classify_head(x)
+        # return x
 
-        # return x.mean(dim=1, keepdim=False)
+        return x.mean(dim=1, keepdim=False)
 
 
 if __name__ == '__main__':
