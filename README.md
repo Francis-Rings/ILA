@@ -7,7 +7,7 @@ This is an official implementation of [ILA](https://arxiv.org/abs/2304.10465), a
 > accepted by ICCV 2023<br>
 > Shuyuan Tu, [Qi Dai](https://scholar.google.com/citations?user=NSJY12IAAAAJ), [Zuxuan Wu](https://zxwu.azurewebsites.net/), [Zhi-Qi Cheng](https://scholar.google.com/citations?user=uB2He2UAAAAJ), [Han Hu](https://ancientmooner.github.io/), [Yu-Gang Jiang](https://fvl.fudan.edu.cn/)
 
-[[arxiv]](https://arxiv.org/abs/2304.10465) [[Slides]](ILA_slides.pdf)
+[[arxiv]](https://arxiv.org/abs/2304.10465) [[pdf]](https://openaccess.thecvf.com/content/ICCV2023/papers/Tu_Implicit_Temporal_Modeling_with_Learnable_Alignment_for_Video_Recognition_ICCV_2023_paper.pdf) [[supp]](https://openaccess.thecvf.com/content/ICCV2023/supplemental/Tu_Implicit_Temporal_Modeling_ICCV_2023_supplemental.pdf) [[slides]](ILA_slides.pdf)
 
 
 <div align="center">
