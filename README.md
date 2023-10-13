@@ -1,9 +1,9 @@
 
 # [ICCV'2023 Oral] Implicit Temporal Modeling with Learnable Alignment for Video Recognition
 
-This is an official implementation of [ILA](https://arxiv.org/abs/2304.10465), a new temporal modeling method for video action recognition.
+This is an official implementation of [ILA](https://openaccess.thecvf.com/content/ICCV2023/papers/Tu_Implicit_Temporal_Modeling_with_Learnable_Alignment_for_Video_Recognition_ICCV_2023_paper.pdf), a new temporal modeling method for video action recognition.
 
-> [**Implicit Temporal Modeling with Learnable Alignment for Video Recognition**](https://arxiv.org/abs/2304.10465)<br>
+> [**Implicit Temporal Modeling with Learnable Alignment for Video Recognition**](https://openaccess.thecvf.com/content/ICCV2023/papers/Tu_Implicit_Temporal_Modeling_with_Learnable_Alignment_for_Video_Recognition_ICCV_2023_paper.pdf)<br>
 > accepted by ICCV 2023<br>
 > Shuyuan Tu, [Qi Dai](https://scholar.google.com/citations?user=NSJY12IAAAAJ), [Zuxuan Wu](https://zxwu.azurewebsites.net/), [Zhi-Qi Cheng](https://scholar.google.com/citations?user=uB2He2UAAAAJ), [Han Hu](https://ancientmooner.github.io/), [Yu-Gang Jiang](https://fvl.fudan.edu.cn/)
 
